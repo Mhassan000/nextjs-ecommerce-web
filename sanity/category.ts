@@ -1,4 +1,3 @@
-import { list } from "postcss"
 import { defineField ,defineType } from "sanity"
 
 export const category = defineType({
@@ -12,7 +11,7 @@ export const category = defineType({
             title: 'Product Category',
             type: 'string',
             options: {
-                list:['Male','Female','Kids']
+                list:['Male', 'Female', 'Kids']
             }
         })
     ]
