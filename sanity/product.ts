@@ -9,6 +9,11 @@ export const product = defineType ({
                 title: 'Title', //Sanity filed title
                 type: 'string'
             },
+            defineField({
+                name: 'ptype',
+                title: 'Product Type',
+                type: 'string'
+            }),
             {
                 name: 'description', //works as id in json
                 title: 'Product Description', //Sanity filed title
@@ -23,6 +28,11 @@ export const product = defineType ({
                     title: 'Image',
                     type :'image'
                 }],
+            }),
+            defineField({
+                name: 'price',
+                title: 'Product Price',
+                type: 'number'
             }),
             defineField({
                 name: 'category', //works as id in json
