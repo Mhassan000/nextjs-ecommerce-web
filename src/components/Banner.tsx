@@ -4,10 +4,10 @@ import { BiCart } from 'react-icons/bi';
 import Image from 'next/image';
 const Banner = () => {
   return (
-    <div className='max-w-[92rem]  mx-auto h-[80vh] flex justify-between  px-8 py-8   md:px-20 xl:px-28'>
+    <div className='max-w-[92rem] relative mx-auto h-[80vh] flex justify-between  px-8 py-8   md:px-20 xl:px-28'>
         
 
-            {/* Text */}
+            {/* Left Side */}
             <div className='flex w-full lg:mt-12  flex-col gap-10 '>
                 <p className='text-blue-700 font-semibold bg-[#e1edff] self-start px-5 py-2 rounded' >Sale 70%</p>
                 <h2 className='font-bold text-4xl  md:text-6xl lg:mr-20 xl:mr-40  leading-tight '>An Industrial Take on Streetwear</h2>
@@ -30,10 +30,15 @@ const Banner = () => {
 
             </div>
 
-            {/* Image */}
-            <div className=" justify-center hidden  relative   lg:flex gap-3     ">
+            {/* Right Side Image */}
+            {/* <div className=" justify-center hidden  relative   lg:flex gap-3     ">
                   <Image className=' object-cover bg-cover absolute  -top-7 w-full h-auto  '  src={'/BannerImage.webp'} sizes='100vw' alt='' width={0} height={0} />
               <div className='bg-[#ffece3] rounded-full w-[500px] h-[500px]'>
+              </div>
+            </div> */}
+            <div className=" hidden lg:flex gap-3  justify-center    ">
+              <div className='bg-[#ffece3] flex items-center justify-center rounded-full  w-[600px] h-[600px]'>
+                  <Image className=' absolute -top-5 '  src={'/BannerImage.webp'}  alt='' width={700} height={700} />
               </div>
             </div>
             
