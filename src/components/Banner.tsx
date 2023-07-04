@@ -36,7 +36,7 @@ const Banner = () => {
               <div className='bg-[#ffece3] rounded-full w-[500px] h-[500px]'>
               </div>
             </div> */}
-            <div className=" hidden lg:flex gap-3  justify-center    ">
+            <div className=" hidden lgu:flex gap-3  justify-center    ">
               <div className='bg-[#ffece3] flex items-center justify-center rounded-full  w-[600px] h-[600px]'>
                   <Image className=' absolute -top-5 '  src={'/BannerImage.webp'}  alt='' width={700} height={700} />
               </div>
