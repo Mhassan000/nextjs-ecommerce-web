@@ -4,11 +4,11 @@ import { BiCart } from 'react-icons/bi';
 import Image from 'next/image';
 const Banner = () => {
   return (
-    <div className='max-w-[92rem] relative mx-auto h-[80vh] flex justify-between  px-8 py-8   md:px-20 xl:px-28'>
+    <div className='max-w-[92rem] relative mx-auto  flex justify-between  px-8 py-8   md:px-20 xl:px-28'>
         
 
             {/* Left Side */}
-            <div className='flex w-full lg:mt-12  flex-col gap-10 '>
+            <div className='flex w-full lg:w-auto lg:mt-12  flex-col gap-10 '>
                 <p className='text-blue-700 font-semibold bg-[#e1edff] self-start px-5 py-2 rounded' >Sale 70%</p>
                 <h2 className='font-bold text-4xl  md:text-6xl lg:mr-20 xl:mr-40  leading-tight '>An Industrial Take on Streetwear</h2>
                 <p className='text-[#666] lg:mr-32 xl:mr-60 '>Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.</p>
