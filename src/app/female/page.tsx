@@ -28,7 +28,7 @@ const page: React.FC<IFProduct>  = async () => {
   const data:IFProduct[] = await getFemaleProducts()
   
   return (
-    <div className='max-w-[92rem] mx-auto grid px-8 py-8 md:px-20 lg:px-28 sm:grid-cols-2 lg:grid-cols-3 sm:justify-between justify-center items-center xl:grid-cols-4 gap-10'>
+    <div className='max-w-[92rem] mx-auto  grid px-8 py-8 md:px-20 lg:px-28 sm:grid-cols-2 lg:grid-cols-3 sm:justify-between justify-center items-center xl:grid-cols-4 gap-10'>
 
       {data.map((item,index)=>{
         const imageUrl = Array.isArray(item.image)
@@ -37,7 +37,7 @@ const page: React.FC<IFProduct>  = async () => {
 
         return (
           
-          <div key={index} className='flex mx-auto max-w-[250px] flex-col gap-y-2 '>
+          <div key={index} className='flex mx-auto max-w-[250px] flex-col  '>
             <Link href={`/product/${item._id}`}>
             <Image
               src={imageUrl as string}
@@ -45,9 +45,9 @@ const page: React.FC<IFProduct>  = async () => {
               width={250}
               height={270}
             />
-            <h2 className='text-[#212121] font-semibold'>{item.title}</h2>
-            <p className='text-[#888] font-semibold -mt-0.5'>{item.ptype}</p>
-            <p className='text-[#212121] font-semibold text-lg mt-1'>${item.price}</p>
+            <h2 className='text-[#212121] font-semibold mt-1'>{item.title}</h2>
+            <p className='text-[#888] font-semibold mt-0.5'>{item.ptype}</p>
+            <p className='text-[#212121] font-semibold text-lg mt-1.5'>${item.price}</p>
 
 
           </Link>
