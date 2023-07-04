@@ -3,6 +3,7 @@ import ProductCart from "@/components/ProductCart";
 import { client } from "@/lib/sanityClient"
 import { Image as IImage } from "sanity";
 import Image from "next/image";
+import Events from "@/components/Events";
 const getProducts = async ()=>{
   const res = await client.fetch(`*[_type == 'product']{
     title,
@@ -29,7 +30,7 @@ export default async function Home() {
     <>
     
     <Banner />
-    <div className="flex flex-wrap h-screen items-center gap-3 justify-center ">
+    {/* <div className="flex flex-wrap h-screen items-center gap-3 justify-center ">
     {data.map((item,index)=>(
       <div key={index}>
         <ProductCart item = {item} />
@@ -38,7 +39,8 @@ export default async function Home() {
       
 
    </div>
-   
+    */}
+    <Events />
     </>
   )
 }
