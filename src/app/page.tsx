@@ -4,6 +4,7 @@ import { client } from "@/lib/sanityClient"
 import { Image as IImage } from "sanity";
 import Image from "next/image";
 import Events from "@/components/Events";
+import Newsletter from "@/components/Newsletter";
 const getProducts = async ()=>{
   const res = await client.fetch(`*[_type == 'product']{
     title,
@@ -41,6 +42,7 @@ export default async function Home() {
    </div>
     */}
     <Events />
+    <Newsletter />
     </>
   )
 }
