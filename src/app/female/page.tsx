@@ -24,7 +24,7 @@ interface IFProduct {
 }
 
 
-const page: React.FC<IFProduct>  = async () => {
+const page  = async () => {
   const data:IFProduct[] = await getFemaleProducts()
   
   return (
