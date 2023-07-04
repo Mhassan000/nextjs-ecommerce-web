@@ -33,7 +33,7 @@ import { usePathname } from "next/navigation";
               
                 <form>
                     <div className="md:flex     hidden rounded border-2  border-gray-200 relative items-center">
-                        <input className="text-xs lg:w-[200px]  xl:w-[400px] px-7 py-1 outline-none bor " value={searchTerm} onChange={hanldeSearch} type="text" placeholder="Search Products" />
+                        <input className="text-xs lg:w-[200px]  xl:w-[400px] px-7 py-1 outline-none  " value={searchTerm} onChange={hanldeSearch} type="text" placeholder="Search Products" />
                         <span className="absolute py-1 top-0 left-1"><BiSearch fill="gray" /></span>
                     </div>
                 </form>
@@ -47,7 +47,7 @@ import { usePathname } from "next/navigation";
 
              
 
-              <div className="lg:hidden  ">
+              <div className="lg:hidden z-50  ">
                 <button
                   
                   className="p-2 -mr-1 transition duration-200 rounded focus:outline-none "
@@ -56,7 +56,7 @@ import { usePathname } from "next/navigation";
                   <RiMenu3Line fill="black" fontSize={25} />
                 </button>
                 {isMenuOpen && (
-                  <div className="absolute top-0 left-0 w-full ">
+                  <div className="absolute top-0 left-0 w-full z-50 ">
                     <div className="p-5 bg-white border rounded ">
                       <div className="flex items-center justify-between mb-9">
                         <Link href={'/'} className="">
