@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens:{
+        'lgu':'1170px',
+      }
      
      },
   },
