@@ -18,8 +18,8 @@ import { usePathname } from "next/navigation";
     }
     const active = 'text-[black] font-semibold'
     return (
-          <div className="px-8 py-8 mx-auto  md:max-w-[92rem]  md:px-20  xl:px-28">
-            <div className="relative flex items-center justify-between">
+          <div className="px-8 py-8 mx-auto sticky top-0 z-50 bg-white md:max-w-[92rem]  md:px-20  xl:px-28">
+            <div className="relative  flex items-center justify-between">
               {/* Logo */}
               <Link href={'/'} className="">
                     <Image className="" src={'/logo.webp'} width={150} height={200} alt="log" />

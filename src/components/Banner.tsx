@@ -4,7 +4,7 @@ import { BiCart } from 'react-icons/bi';
 import Image from 'next/image';
 const Banner = () => {
   return (
-    <div className='max-w-[92rem] relative mx-auto  flex justify-between  px-8 py-8   md:px-20 xl:px-28'>
+    <div className='max-w-[92rem] relative mx-auto  flex justify-between  px-8 py-8 mt-0 lgu:mt-5   md:px-20 xl:px-28'>
         
 
             {/* Left Side */}
