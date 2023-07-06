@@ -2,6 +2,7 @@
 import { ChangeEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import logo from '../../public/Logo.webp'
 import { BiSearch } from 'react-icons/bi';
 import { BiCart } from 'react-icons/bi';
 import { RiMenu3Line } from 'react-icons/ri';
@@ -22,7 +23,7 @@ import { usePathname } from "next/navigation";
             <div className="relative  flex items-center justify-between">
               {/* Logo */}
               <Link href={'/'} className="">
-                    <Image className="" src={'/logo.webp'} width={150} height={200} alt="log" />
+                    <Image className="" src={logo} width={150} height={200} alt="log" />
               </Link>
               <ul className=" items-center hidden lg:space-x-4  xl:space-x-8  lg:flex gap-3">
                 <Link className={pathname == "/female" ? active : ""} href={'/female'}>Female</Link>
