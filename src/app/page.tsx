@@ -8,7 +8,7 @@ import Newsletter from "@/components/Newsletter";
 import FeatureBanner from "@/components/FeatureBanner";
 const getProducts = async ()=>{
   const res = await client.fetch(`*[_type == 'product']{
-    title,
+    name,
     description,
     _id,
     image,
@@ -18,7 +18,7 @@ const getProducts = async ()=>{
 }
 
 export interface IProduct {
-  title: string,
+  name: string,
   description: string
   image: IImage
   _id: string

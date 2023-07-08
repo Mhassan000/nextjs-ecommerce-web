@@ -1,13 +1,16 @@
 import React from 'react'
 import { client } from '@/lib/sanityClient'
-import { Image as IImage } from "sanity";
+import { Image as IImage, Slug } from "sanity";
 import { urlForImage } from '../../../sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
  
 const getFemaleProducts  = async ()=>{
-  const res = await client.fetch (`*[_type == "product" && category->name == "Female"]{
-    title,
+  const res = await client.fetch (`*[_type == "product" &&  category->name == "Female"]{
+    slug{
+      current
+    },
+    name,
     ptype,
     _id,
     image,
@@ -16,11 +19,12 @@ const getFemaleProducts  = async ()=>{
   return res
 }
 interface IFProduct {
-  title: string
+  name: string
   ptype: string
   image: IImage
   price: number
   _id: string
+  slug: Slug
 }
 
 
@@ -38,14 +42,14 @@ const page  = async () => {
         return (
           
           <div key={index} className='flex mx-auto max-w-[250px] flex-col  '>
-            <Link href={`/product/${item._id}`}>
+            <Link href={`/product/${item.slug.current}`}>
             <Image
               src={imageUrl as string}
               alt=""
               width={250}
               height={270}
             />
-            <h2 className='text-[#212121] font-semibold mt-1'>{item.title}</h2>
+            <h2 className='text-[#212121] font-semibold mt-1'>{item.name}</h2>
             <p className='text-[#888] font-semibold mt-0.5'>{item.ptype}</p>
             <p className='text-[#212121] font-semibold text-lg mt-1.5'>${item.price}</p>
 
