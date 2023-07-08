@@ -9,7 +9,7 @@ const Newsletter = () => {
             <p>Get the latest information and promo offers directly</p>
             <div className='flex justify-center items-center flex-col sm:flex-row max-w-[28rem] sm:w-full gap-2'>
                 <input className='border-gray-500 h-[38px] sm:flex-grow border px-4 outline-none bg-white ' type="email" placeholder='Enter email address' />
-                <button className='bg-black mx-auto py-2 px-8 text-white border-t-2 border-l-2 font-semibold'>Get Started</button>
+                <button className='bg-black mx-auto py-2 px-8 text-white border-slate-500 border-t-2 border-l-2 font-semibold'>Get Started</button>
             </div>
             <div className="absolute -z-10  inset-0 flex items-center justify-center">
                 <span className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-clip-text text-[#f2f3f7]">Newsletter</span>

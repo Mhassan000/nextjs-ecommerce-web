@@ -9,7 +9,7 @@ const FeatureBanner = () => {
         </div>
 
         {/* Content */}
-        <div className='grid grid-cols-1 xl:grid-cols-[1fr,1fr] bg-[#fbfcff] -mt-14 z-10 pt-20'>
+        <div className='grid grid-cols-1 px-2 xl:grid-cols-[1fr,1fr] bg-[#fbfcff] -mt-14 z-10 pt-20'>
             {/* Left Side */}
             <div className='grid grid-cols-[1fr,1fr] gap-2 relative z-20 items-center justify-center'>
                 {/* Background text */}
@@ -42,7 +42,7 @@ const FeatureBanner = () => {
 
                     <p className='hidden lg:flex  opacity-60 leading-7 tracking-wide '>This piece is ethically crafted in our &nbsp; &nbsp; &nbsp;  small &nbsp; &nbsp; &nbsp; family-owned workshop in &nbsp; &nbsp; &nbsp; Peru &nbsp; &nbsp; &nbsp; with unmatched attention to detail and care. The Natural color is the actual natural color of the fiber, undyed and 100% traceable.</p>
                     <p className='lg:hidden opacity-60 leading-7 tracking-wide'>This piece is ethically crafted in our  small family-owned workshop in  Peru  with unmatched attention to detail and care. The Natural color is the actual natural color of the fiber, undyed and 100% traceable. </p>
-                    <button className='bg-black s py-2 px-2 text-white border-t-2 border-l-2 font-semibold'>See All Product</button>
+                    <button className='bg-black s py-2 px-2 text-white border-slate-500 border-t-2 border-l-2 font-semibold'>See All Product</button>
                 </div>
             </div>
         </div>

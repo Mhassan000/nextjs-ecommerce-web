@@ -49,7 +49,7 @@ const ProductCart: React.FC<ProductCartProps> = ({ item }) => {
           height={200}
         />
       ))} */}
-      <h2 className="font-bold fel ">{item.title}</h2>
+      <h2 className="font-bold fel ">{item.name}</h2>
 
           <button onClick={handleAddtoCart} className="bg-blue-700 p-2 rounded text-white">Add To Cart</button>
       </div>
