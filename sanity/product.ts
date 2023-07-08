@@ -5,7 +5,7 @@ export const product = defineType ({
         title: 'Product', // Sanity document title
         fields: [
             {
-                name: 'title', //works as id in json
+                name: 'name', //works as id in json
                 title: 'Title', //Sanity filed title
                 type: 'string'
             },
@@ -43,6 +43,15 @@ export const product = defineType ({
                     
                 }],
             }),
+            defineField({
+                name:'slug',
+                title:'Slug',
+                type: 'slug',
+                options: {
+                    source: 'name',
+                    maxLength: 90,
+                }
+            })
         ]
 
     }
