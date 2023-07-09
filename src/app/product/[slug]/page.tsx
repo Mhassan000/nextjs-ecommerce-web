@@ -1,13 +1,7 @@
 import { client } from '@/lib/sanityClient'
 
 export async function generateStaticParams() {
-    //Generating all the product slugs
-    // const res = await client.fetch (`*[_type == "product" && slug.current == $slug]{  ]`);
-    // // console.log ('Product',res)
-    //   return res.map((product:any) => ({
-               
-    //   }));
-    // }
+  
     const res = await client.fetch (`*[_type == "product" ]{  slug}`); 
     return res.map((product:any) => ({
         params: {
