@@ -26,10 +26,10 @@ import { usePathname } from "next/navigation";
                     <Image className="" src={logo} width={150} height={200} alt="log" />
               </Link>
               <ul className=" items-center hidden lg:space-x-4  xl:space-x-8  lg:flex gap-3">
-                <Link className={pathname == "/female" ? active : ""} href={'/female'}>Female</Link>
-                <Link className={pathname == "/male" ? active : ""} href={'/male'}>Male</Link>
-                <Link className={pathname == "/kids" ? active : ""} href={'/kids'}>Kids</Link>
-                <Link className={pathname == "/products" ? active : ""} href={'/products'}>All Products</Link>
+                <Link className={pathname == "products/Female" ? active : ""} href={'products/Female'}>Female</Link>
+                <Link className={pathname == "products/Male" ? active : ""} href={'products/Male'}>Male</Link>
+                <Link className={pathname == "products/Kids" ? active : ""} href={'products/Kids'}>Kids</Link>
+                <Link className={pathname == "products/All" ? active : ""} href={'products/products/All'}>All Products</Link>
               </ul>
               
                 <form>
@@ -82,10 +82,10 @@ import { usePathname } from "next/navigation";
                           </div>
                       <nav>
                         <ul onClick={()=>setIsMenuOpen(false)} className="space-y-4 flex flex-col items-center py-8">
-                          <Link  className=" hover:text-blue-700 active:text-green-700" href={'/female'}>Female</Link>
-                          <Link className=" hover:text-blue-700" href={'/male'}>Male</Link>
-                          <Link className=" hover:text-blue-700" href={'/kids'}>Kids</Link>
-                          <Link className=" hover:text-blue-700" href={'/products'}>All Products</Link>
+                          <Link  className=" hover:text-blue-700 active:text-green-700" href={'products/Female'}>Female</Link>
+                          <Link className=" hover:text-blue-700" href={'products/Male'}>Male</Link>
+                          <Link className=" hover:text-blue-700" href={'products/Kids'}>Kids</Link>
+                          <Link className=" hover:text-blue-700" href={'products/All'}>All Products</Link>
                          
                         </ul>
                           
