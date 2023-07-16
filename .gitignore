@@ -35,5 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#Sanity
-/src/lib/sanityClient.ts
+#Hide Sanity Client file
+/sanityClient.js
+```
