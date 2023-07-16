@@ -36,5 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 #Hide Sanity Client file
-/sanityClient.js
-```
+/sanityClient.ts
