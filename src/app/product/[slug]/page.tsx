@@ -1,36 +1,109 @@
 import { client } from '@/lib/sanityClient'
+import { urlForImage } from '../../../../sanity/lib/image';
+import Image from 'next/image';
+import AddToCart from '@/components/AddToCart';
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
   
-    const res = await client.fetch (`*[_type == "product" ]{  slug}`); 
-    return res.map((product:any) => ({
-        params: {
-            slug: product.slug.current
-        }
-    }));  
-}
+//     const res = await client.fetch (`*[_type == "product" ]{  slug}`); 
+//     return res.map((product:any) => ({
+//         params: {
+//             slug: product.slug.current
+//         }
+//     }));  
+// }
 export default async function Page({ params }: { params: { slug: string } }) {
   const {slug} = params
+  
+  
   // Fetch the product data based on the slug
   const product = await client.fetch (`*[_type == "product" && slug.current == '${slug}'  ]{
     name,
+    ptype,
     description,
     _id,
     image,
+    price,
     }`); 
     console.log('ProducID:',slug);
     console.log('Product:',product);
+    const { image, name, description, price ,ptype} = product[0];
+
+    
+    
     return (
-        <div >
-          {/* Display product data */}
-          {product.map((item:any,index:number)=>(
-            <div key={index}>
-              <h1>{item.name}</h1>
-              <p>{item.description}</p>
+      
+        <div className='px-8  py-8 mx-auto  md:max-w-[92rem]  md:px-20  xl:px-28'>
+
+          <div className='grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-6'>
+            {/* Images */}
+            <div className='flex   gap-5 '>
+              
+              <div className='flex flex-col gap-5'>
+                {image.map((item:any,index:number)=>(
+                  <div key={index} >
+                  <Image 
+                  key={index}
+                  src={urlForImage(item) as string} 
+                  alt="" 
+                  width={100}
+                  height={100}
+                  
+                  />
+                  </div> 
+                ))}
+              </div>
+              <div className='w-full h-full'>
+                
+                  <Image className='w-full h-full object-cover bg-cover'
+                  
+                  src={urlForImage(image[0]) as string}
+                  alt=""
+                  width={0}
+                  height={0}
+                  sizes='100vw'
+                  />
+              </div>
             </div>
-          ))}
-          
+
+            {/* Product info */}
+            <div className='flex flex-col gap-7 mt-16'>
+              <div className='flex flex-col'>
+                <h1 className='text-3xl font-semibold'>{name}</h1>
+                <p className='text-[#888] text-lg font-semibold'>{ptype}</p>
+
+              </div>
+              <p className='font-semibold'>SELECT SIZE</p>
+              <div className='flex gap-2'>
+                <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>XS</div>
+                <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>S</div>
+                <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>M</div>
+                <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>L</div>
+                <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>XL</div>
+              </div>
+              {/* Quantity */}
+              <div className='flex items-center gap-4'>
+                  <p className='font-semibold'>QUANTITY:</p>
+                <div className='flex items-center gap-4'>
+                  <div className='w-8 h-8 bg-[#f1f1f1] border-[#f1f1f1] border rounded-full   shadow-white text-lg cursor-pointer font-semibold  flex justify-center items-center'
+                  
+                  >-</div>
+                  <div className=' text-[#666] font-semibold '>1</div>
+                  <div className='w-8 h-8 border border-black rounded-full  text-lg cursor-pointer font-semibold  flex justify-center items-center'
+                  
+                  >+</div>
+                </div>
+              </div>
+              {/* Add to Cart Button And Price */}
+              <div className='flex items-center gap-5 '>
+                <AddToCart productId={product._id} />
+                <p className='text-2xl font-semibold'>${price}.00</p>
+              </div>
+
+            </div>
+          </div>
           
         </div>
     )
+
   }
