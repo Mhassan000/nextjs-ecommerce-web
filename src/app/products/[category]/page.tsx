@@ -1,7 +1,7 @@
 import React from 'react'
 import { client } from '@/lib/sanityClient'
-import { Image as IImage, Slug } from "sanity";
 import ProductCard from '@/components/ProductCard';
+import { IFProduct } from '../../../../types';
  
 const getProducts  = async (category:string)=>{
   const res = await client.fetch (`*[_type == "product" &&  category->name == "${category}"]{
@@ -17,14 +17,7 @@ const getProducts  = async (category:string)=>{
   return res
 }
 
-export interface IFProduct {
-  name: string
-  ptype: string
-  image: IImage
-  price: number
-  _id: string
-  slug: Slug
-}
+
 
 export default async function Page({ params }: { params: { category: string } }) {
   const {category} = params

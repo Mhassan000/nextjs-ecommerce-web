@@ -2,6 +2,7 @@ import { client } from '@/lib/sanityClient'
 import { urlForImage } from '../../../../sanity/lib/image';
 import Image from 'next/image';
 import AddToCart from '@/components/AddToCart';
+import Quantity from '@/components/Quantity';
 
 // export async function generateStaticParams() {
   
@@ -27,7 +28,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     }`); 
     console.log('ProducID:',slug);
     console.log('Product:',product);
-    const { image, name, description, price ,ptype} = product[0];
+    const { image, name, description, price ,ptype,_id} = product[0];
 
     
     
@@ -82,21 +83,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>XL</div>
               </div>
               {/* Quantity */}
-              <div className='flex items-center gap-4'>
-                  <p className='font-semibold'>QUANTITY:</p>
-                <div className='flex items-center gap-4'>
-                  <div className='w-8 h-8 bg-[#f1f1f1] border-[#f1f1f1] border rounded-full   shadow-white text-lg cursor-pointer font-semibold  flex justify-center items-center'
-                  
-                  >-</div>
-                  <div className=' text-[#666] font-semibold '>1</div>
-                  <div className='w-8 h-8 border border-black rounded-full  text-lg cursor-pointer font-semibold  flex justify-center items-center'
-                  
-                  >+</div>
-                </div>
-              </div>
+              <Quantity />
+              
               {/* Add to Cart Button And Price */}
               <div className='flex items-center gap-5 '>
-                <AddToCart productId={product._id} />
+                <AddToCart productId={_id} />
                 <p className='text-2xl font-semibold'>${price}.00</p>
               </div>
 
