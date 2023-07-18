@@ -28,7 +28,7 @@ export const POST  =  async (request: NextRequest)=>{
         const res = await db.insert(cartTable).values({
             product_id: req.product_id,
             Quantity: 1,
-            user_id: user_id as string,
+            user_id: user_id || uid as string,
         }).returning();
         return NextResponse.json({res})
 
