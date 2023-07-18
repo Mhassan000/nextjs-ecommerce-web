@@ -2,7 +2,7 @@ import React from 'react'
 import { urlForImage } from '../../sanity/lib/image';
 import Link from 'next/link';
 import Image from 'next/image';
-import { IFProduct } from '@/app/products/[category]/page'; 
+import { IFProduct } from '../../types';
 
 const ProductCard = ({item}:{item:IFProduct}) => {
 
