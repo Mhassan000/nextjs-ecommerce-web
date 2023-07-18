@@ -26,10 +26,10 @@ import { usePathname } from "next/navigation";
                     <Image className="" src={logo} width={150} height={200} alt="log" />
               </Link>
               <ul className=" items-center hidden lg:space-x-4  xl:space-x-8  lg:flex gap-3">
-                <Link className={pathname == "products/Female" ? active : ""} href={'products/Female'}>Female</Link>
-                <Link className={pathname == "products/Male" ? active : ""} href={'products/Male'}>Male</Link>
-                <Link className={pathname == "products/Kids" ? active : ""} href={'products/Kids'}>Kids</Link>
-                <Link className={pathname == "products/All" ? active : ""} href={'products/products/All'}>All Products</Link>
+                <Link className={pathname == "/products/Female" ? active : ""} href={'products/Female'}>Female</Link>
+                <Link className={pathname == "/products/Male" ? active : ""} href={'products/Male'}>Male</Link>
+                <Link className={pathname == "/products/Kids" ? active : ""} href={'products/Kids'}>Kids</Link>
+                <Link className={pathname == "/products" ? active : ""} href={'/products'}>All Products</Link>
               </ul>
               
                 <form>
@@ -40,11 +40,12 @@ import { usePathname } from "next/navigation";
                 </form>
 
                 {/* Cart Icom */}
-                <div  className="lg:flex relative bg-gray-200 hidden lg:p-2 lg:rounded-full">
+
+                <Link href={'/cart'} className="lg:flex relative bg-gray-200 hidden lg:p-2 lg:rounded-full">
                     <BiCart fontSize={30} />
                     <p className="absolute top-0 bg-red-600 text-white px-1.5 py-0.5 w-auto h-auto rounded-full  right-1 text-[8px]">0</p>
 
-                </div>
+                </Link>
 
              
 
@@ -60,7 +61,7 @@ import { usePathname } from "next/navigation";
                   <div className="absolute top-0 left-0 w-full z-50 ">
                     <div className="p-5 bg-white border rounded ">
                       <div className="flex items-center justify-between mb-9">
-                        <Link href={'/'} className="">
+                        <Link href={'/'}  onClick={()=>setIsMenuOpen(false)} className="">
                             <Image className="" src={'/logo.png'} width={150} height={200} alt="log" />
                         </Link>
                         <div>
@@ -75,17 +76,17 @@ import { usePathname } from "next/navigation";
                         </div>
                       </div>
                        {/* Cart Icom */}
-                      <div  className="lg:hidden -mb-4 w-fit  mx-auto   relative  flex bg-gray-200  p-2 rounded-full">
+                      <Link href={'/cart'} className="lg:hidden -mb-4 w-fit  mx-auto   relative  flex bg-gray-200  p-2 rounded-full">
                               <BiCart fontSize={30} />
                               <p className="absolute top-0 bg-red-600 text-white px-1.5 py-0.5 w-auto h-auto rounded-full  right-1 text-[8px]">0</p>
 
-                          </div>
+                      </Link>
                       <nav>
                         <ul onClick={()=>setIsMenuOpen(false)} className="space-y-4 flex flex-col items-center py-8">
                           <Link  className=" hover:text-blue-700 active:text-green-700" href={'products/Female'}>Female</Link>
                           <Link className=" hover:text-blue-700" href={'products/Male'}>Male</Link>
                           <Link className=" hover:text-blue-700" href={'products/Kids'}>Kids</Link>
-                          <Link className=" hover:text-blue-700" href={'products/All'}>All Products</Link>
+                          <Link className=" hover:text-blue-700" href={'/products'}>All Products</Link>
                          
                         </ul>
                           
