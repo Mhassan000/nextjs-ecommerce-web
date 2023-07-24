@@ -2,7 +2,6 @@ import { client } from '@/lib/sanityClient'
 import { urlForImage } from '../../../../sanity/lib/image';
 import Image from 'next/image';
 import AddToCart from '@/components/AddToCart';
-import Quantity from '@/components/Quantity';
 
 // export async function generateStaticParams() {
   
@@ -82,15 +81,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>L</div>
                 <div className='w-10 h-10 hover:bg-white hover:rounded-full hover:drop-shadow  shadow-white text-[#666] hover:cursor-pointer font-semibold  flex justify-center items-center'>XL</div>
               </div>
-              {/* Quantity */}
-              <Quantity />
               
-              {/* Add to Cart Button And Price */}
-              <div className='flex items-center gap-5 '>
-                <AddToCart productId={_id} />
-                <p className='text-2xl font-semibold'>${price}.00</p>
-              </div>
-
+              {/* Add To Cart , Quantity And Price */}
+              <AddToCart productId={_id} price={price} />
             </div>
           </div>
           
