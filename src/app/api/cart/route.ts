@@ -6,8 +6,9 @@ import { eq } from "drizzle-orm";
 
 export const GET  =  async (request: NextRequest)=>{
     try{
-        const res = await db.select().from(cartTable).where(eq( cartTable.user_id, cookies().get('user_id')?.value as string));
-        return NextResponse.json({res})
+        const user_id = request.nextUrl.searchParams.get('user_id') 
+        const res = await db.select().from(cartTable).where(eq( cartTable.user_id, user_id as string));
+        return NextResponse.json(res)
 
     }catch(error){
         return NextResponse.json('Something went wrong')
