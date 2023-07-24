@@ -2,9 +2,11 @@ import { NextRequest,NextResponse } from "next/server";
 import { cartTable, db } from "@/lib/drizzle";
 import {v4} from 'uuid'
 import { cookies } from "next/headers";
+import { eq } from "drizzle-orm";
+
 export const GET  =  async (request: NextRequest)=>{
     try{
-        const res = await db.select().from(cartTable)
+        const res = await db.select().from(cartTable).where(eq( cartTable.user_id, cookies().get('user_id')?.value as string));
         return NextResponse.json({res})
 
     }catch(error){
@@ -27,7 +29,7 @@ export const POST  =  async (request: NextRequest)=>{
     try{
         const res = await db.insert(cartTable).values({
             product_id: req.product_id,
-            Quantity: 1,
+            Quantity: req.Quantity,
             user_id: user_id || uid as string,
         }).returning();
         return NextResponse.json({res})
