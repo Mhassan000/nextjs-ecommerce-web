@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { client } from '@/lib/sanityClient'
-
+import { urlForImage } from '../../../sanity/lib/image';
 import { cookies } from 'next/headers';
 import { IFProduct } from '../../../types';
 
@@ -16,6 +16,7 @@ const getCartItems =  async ()=>{
   const user_id = cookies().get('user_id')?.value
   const res = await fetch (`http://localhost:3000/api/cart?user_id=${user_id}` ,{
     method: 'GET',
+    cache: 'no-store'
   })
   const result = await res.json()
   return result
@@ -26,9 +27,7 @@ const getCartItems =  async ()=>{
 
 
 const Cart = async  () => {
-  
-  // console.log('data',data)
-  
+    
   const getProductItems = async ()=>{
 
     try{
@@ -64,14 +63,28 @@ const Cart = async  () => {
   return (
     
     <div className='px-8  py-8 mx-auto  md:max-w-[92rem]  md:px-20  xl:px-28'>
-        <h1>Shopping Cart</h1>
+        <h1 className='text-[black] font-bold text-2xl'>Shopping Cart</h1>
+        <div>
+
+        </div>
         {productItems.map((item,index)=>(
-          <div key={index} className='flex flex-col'>
+          <div key={index} className='flex gap-x-2'>
            
-            <p>{item.name}</p>
-            <p>{item.price}</p>
-            <p>{item.ptype}</p>
-            
+            <div >
+              <Image className='rounded-xl'
+              src={urlForImage(item.image[0] as any) as string}
+              alt=""
+              width={200}
+              height={200}
+              />
+            </div>
+            <div className='flex flex-col gap-y-2'>
+              <h1>{item.name}</h1>
+              <p>{item.ptype}</p>
+              <p>Delivery Estimation</p>
+              <p>5 Working Days</p>
+              <p>${item.price}</p>
+            </div>
           </div>
         ))}
 

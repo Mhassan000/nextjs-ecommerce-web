@@ -83,7 +83,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </div>
               
               {/* Add To Cart , Quantity And Price */}
-              <AddToCart productId={_id} price={price} />
+              <AddToCart productId={_id} price={price} name={name} />
             </div>
           </div>
           
