@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { BiCart } from 'react-icons/bi';
 import toast, { Toaster } from 'react-hot-toast';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
 const AddToCart =  ({productId ,price,name} :{productId:string, price:number, name: string}) => {
   
   
@@ -15,7 +17,7 @@ const AddToCart =  ({productId ,price,name} :{productId:string, price:number, na
     }
 
     const handleAddtoCart = async ()=>{
-        const res = await fetch ('/api/cart' ,{
+        const res = await fetch (`${baseUrl}/api/cart` ,{
           method: 'POST',
           body: JSON.stringify({
             product_id: productId,

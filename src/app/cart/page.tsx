@@ -11,12 +11,12 @@ export interface ICProduct {
     Quantity: number
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 const getCartItems =  async ()=>{
   const user_id = cookies().get('user_id')?.value
-  const res = await fetch (`http://localhost:3000/api/cart?user_id=${user_id}` ,{
-    method: 'GET',
-    cache: 'no-store'
+  const res = await fetch (`${baseUrl}/api/cart?user_id=${user_id}` ,{
+    cache:'no-store'
   })
   const result = await res.json()
   return result
@@ -24,10 +24,6 @@ const getCartItems =  async ()=>{
 
 
 
-
-
-const Cart = async  () => {
-    
   const getProductItems = async ()=>{
 
     try{
@@ -56,10 +52,11 @@ const Cart = async  () => {
     }
   }
 
-  
-  
+
+const Cart = async  () => {
   const productItems:IFProduct[] = await getProductItems()
   console.log('productItems',productItems)
+
   return (
     
     <div className='px-8  py-8 mx-auto  md:max-w-[92rem]  md:px-20  xl:px-28'>
