@@ -1,9 +1,11 @@
 'use client'
 import { useState } from 'react';
 import { BiCart } from 'react-icons/bi';
+import toast, { Toaster } from 'react-hot-toast';
 
-const AddToCart =  ({productId ,price} :{productId:string, price:number}) => {
-
+const AddToCart =  ({productId ,price,name} :{productId:string, price:number, name: string}) => {
+  
+  
   const [quantity, setQuantity] = useState(1)
     const handleIncrement =  () => {
         setQuantity(quantity + 1)
@@ -22,8 +24,14 @@ const AddToCart =  ({productId ,price} :{productId:string, price:number}) => {
         })     
         const result = await res.json()
         console.log('result: ',result)
-    }
-
+      }
+      const notify = (quantity:number) => toast.promise(
+        handleAddtoCart(),{
+          loading:'Adding..',
+          success: <b>{`${quantity} ${name} added to cart `}</b>,
+          error: <b>Not Added</b>
+        }
+      )
     
 
   return (
@@ -43,10 +51,11 @@ const AddToCart =  ({productId ,price} :{productId:string, price:number}) => {
 
       <div className='flex items-center gap-5 '>
                 
-        <button onClick={handleAddtoCart} className='bg-black flex items-center text-sm  gap-1 py-2 px-6 text-white border-slate-500 border-t-2 border-l-2 font-semibold'>
+        <button onClick={()=>notify(quantity)} className='bg-black flex items-center text-sm  gap-1 py-2 px-6 text-white border-slate-500 border-t-2 border-l-2 font-semibold'>
             <span><BiCart fontSize={25}/></span>
             Add to Cart
         </button>
+        <Toaster/>
         <p className='text-2xl font-semibold'>${price * quantity}.00</p>
       </div>
     </>
