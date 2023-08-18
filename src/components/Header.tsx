@@ -8,14 +8,14 @@ import { BiCart } from 'react-icons/bi';
 import { RiMenu3Line } from 'react-icons/ri';
 import { IoMdClose } from 'react-icons/io';
 import { usePathname } from "next/navigation";
+
  const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [searchTerm,setSearchTerm] = useState('')
     const pathname = usePathname();
+    
     const hanldeSearch = (e: ChangeEvent<HTMLInputElement>)=>{
-        
-        setSearchTerm(e.target.value)
-        
+      setSearchTerm(e.target.value)  
     }
     const active = 'text-[black] font-semibold'
     return (
@@ -58,11 +58,11 @@ import { usePathname } from "next/navigation";
                   <RiMenu3Line fill="black" fontSize={25} />
                 </button>
                 {isMenuOpen && (
-                  <div className="absolute top-0 left-0 w-full z-50 ">
+                  <div className="absolute  top-0 left-0 w-full z-50 ">
                     <div className="p-5 bg-white border rounded ">
                       <div className="flex items-center justify-between mb-9">
                         <Link href={'/'}  onClick={()=>setIsMenuOpen(false)} className="">
-                            <Image className="" src={'/logo.png'} width={150} height={200} alt="log" />
+                            <Image className="" src={logo} width={150} height={200} alt="log" />
                         </Link>
                         <div>
                           <button
@@ -76,7 +76,7 @@ import { usePathname } from "next/navigation";
                         </div>
                       </div>
                        {/* Cart Icom */}
-                      <Link href={'/cart'} className="lg:hidden -mb-4 w-fit  mx-auto   relative  flex bg-gray-200  p-2 rounded-full">
+                      <Link onClick={()=>setIsMenuOpen(false)} href={'/cart'} className="-mb-4 w-fit  mx-auto   relative  flex bg-gray-200  p-2 rounded-full">
                               <BiCart fontSize={30} />
                               <p className="absolute top-0 bg-red-600 text-white px-1.5 py-0.5 w-auto h-auto rounded-full  right-1 text-[8px]">0</p>
 
