@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.11.5",
     "@types/node": "20.2.5",
@@ -26,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.9.0",
+    "react-redux": "^8.1.2",
     "sanity": "^3.14.1",
     "styled-components": "^5.3.11",
     "tailwindcss": "3.3.2",
