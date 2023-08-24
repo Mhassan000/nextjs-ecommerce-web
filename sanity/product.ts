@@ -4,21 +4,22 @@ export const product = defineType ({
         type: 'document',
         title: 'Product', // Sanity document title
         fields: [
-            {
+            defineField({
                 name: 'name', //works as id in json
                 title: 'Title', //Sanity filed title
                 type: 'string'
-            },
+            }),
             defineField({
                 name: 'ptype',
                 title: 'Product Type',
                 type: 'string'
             }),
-            {
+
+            defineField({
                 name: 'description', //works as id in json
                 title: 'Product Description', //Sanity filed title
                 type: 'string'
-            },
+            }),
             defineField({
                 name: 'image', //works as id in json
                 title: 'Product Image', //Sanity filed title
