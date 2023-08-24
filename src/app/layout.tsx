@@ -2,7 +2,7 @@ import Header from '@/components/Header'
 import './globals.css'
 import { Sora } from 'next/font/google'
 import Footer from '@/components/Footer'
-
+import { ClerkProvider } from '@clerk/nextjs'
 const inter = Sora({ subsets: ['latin'] })
 
 export const metadata = {
@@ -16,16 +16,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      
-        
-      <body className={inter.className}>
-       
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
           <Header/>
           {children}
           <Footer/>
-     
-          </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
