@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import { BiCart } from 'react-icons/bi';
 import toast, { Toaster } from 'react-hot-toast';
+import { useAuth } from '@clerk/nextjs';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 const AddToCart =  ({productId ,price,name} :{productId:string, price:number, name: string}) => {
-  
+  const {userId} =  useAuth()
   
   const [quantity, setQuantity] = useState(1)
     const handleIncrement =  () => {
@@ -21,7 +22,9 @@ const AddToCart =  ({productId ,price,name} :{productId:string, price:number, na
           method: 'POST',
           body: JSON.stringify({
             product_id: productId,
-            Quantity: quantity
+            Quantity: quantity,
+            user_id: userId
+
           })
         })     
         const result = await res.json()
