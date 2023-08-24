@@ -8,10 +8,14 @@ import { BiCart } from 'react-icons/bi';
 import { RiMenu3Line } from 'react-icons/ri';
 import { IoMdClose } from 'react-icons/io';
 import { usePathname } from "next/navigation";
+import { SignInButton, UserButton, UserProfile } from "@clerk/nextjs";
+import { useAuth } from '@clerk/nextjs';
 
  const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [searchTerm,setSearchTerm] = useState('')
+    const {isSignedIn, userId } = useAuth();
+    console.log('userId: ', userId);
     const pathname = usePathname();
     
     const hanldeSearch = (e: ChangeEvent<HTMLInputElement>)=>{
@@ -46,7 +50,12 @@ import { usePathname } from "next/navigation";
                     <p className="absolute top-0 bg-red-600 text-white px-1.5 py-0.5 w-auto h-auto rounded-full  right-1 text-[8px]">0</p>
 
                 </Link>
-
+                {/* SignIn Button */}
+                {!isSignedIn && (
+                <SignInButton mode="modal">
+                  <button className="bg-white text-black border-2  p-2 rounded-md ">Sign In </button>
+                </SignInButton>)}
+                <UserButton afterSignOutUrl="/" />
              
 
               <div className="lg:hidden z-50  ">
