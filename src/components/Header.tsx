@@ -14,8 +14,7 @@ import { useAuth } from '@clerk/nextjs';
  const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [searchTerm,setSearchTerm] = useState('')
-    const {isSignedIn, userId } = useAuth();
-    console.log('userId: ', userId);
+    const {isSignedIn } = useAuth();
     const pathname = usePathname();
     
     const hanldeSearch = (e: ChangeEvent<HTMLInputElement>)=>{
