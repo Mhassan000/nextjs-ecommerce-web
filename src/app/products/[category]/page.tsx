@@ -21,7 +21,6 @@ const getProducts  = async (category:string)=>{
 
 export default async function Page({ params }: { params: { category: string } }) {
   const {category} = params
-  console.log('Category:',category);
   const data:IFProduct[] = await getProducts(category)
   
   return (
