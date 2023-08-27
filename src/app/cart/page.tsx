@@ -129,7 +129,6 @@ const getProductItems = async (userId: string | null | undefined)=>{
                   <p className='text-[#666]'>Quantity: {item.quantity}</p>
                 </div>
               </div>
-              
             ))
           )}
         </div>
