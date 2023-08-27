@@ -28,7 +28,7 @@ const AddToCart =  ({productId ,price,name} :{productId:string, price:number, na
           })
         })     
         const result = await res.json()
-        console.log('result: ',result)
+        return result
       }
       const notify = (quantity:number) => toast.promise(
         handleAddtoCart(),{
