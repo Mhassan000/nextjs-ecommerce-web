@@ -3,15 +3,6 @@ import { urlForImage } from '../../../../sanity/lib/image';
 import Image from 'next/image';
 import AddToCart from '@/components/AddToCart';
 
-// export async function generateStaticParams() {
-  
-//     const res = await client.fetch (`*[_type == "product" ]{  slug}`); 
-//     return res.map((product:any) => ({
-//         params: {
-//             slug: product.slug.current
-//         }
-//     }));  
-// }
 export default async function Page({ params }: { params: { slug: string } }) {
   const {slug} = params
   
@@ -25,8 +16,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     image,
     price,
     }`); 
-    console.log('ProducID:',slug);
-    console.log('Product:',product);
     const { image, name, description, price ,ptype,_id} = product[0];
 
     
