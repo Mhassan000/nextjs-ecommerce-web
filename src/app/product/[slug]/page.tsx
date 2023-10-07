@@ -2,6 +2,20 @@ import { client } from '@/lib/sanityClient'
 import { urlForImage } from '../../../../sanity/lib/image';
 import Image from 'next/image';
 import AddToCart from '@/components/AddToCart';
+import { Slug } from 'sanity';
+
+export async function generateStaticParams() {
+  const slug:Slug[] = await client.fetch (`*[_type == "product"]{slug{
+    current
+  }}`)
+  return slug.map((slug)=>({
+    slug: slug.current
+  }))
+  
+}
+
+export const dynamic = "force-static";
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const {slug} = params

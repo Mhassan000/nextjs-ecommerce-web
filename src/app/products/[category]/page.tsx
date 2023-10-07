@@ -3,6 +3,18 @@ import { client } from '@/lib/sanityClient'
 import ProductCard from '@/components/ProductCard';
 import { IFProduct } from '../../../../types';
  
+
+export async function generateStaticParams() {
+
+  const categories: string[] = ['Female','Male','Kids']
+  return categories.map((category)=> ({
+    category : category
+  }
+  ))
+}
+  
+
+
 const getProducts  = async (category:string)=>{
   const res = await client.fetch (`*[_type == "product" &&  category->name == "${category}"]{
     slug{
@@ -17,7 +29,7 @@ const getProducts  = async (category:string)=>{
   return res
 }
 
-
+export const dynamic = "force-static";
 
 export default async function Page({ params }: { params: { category: string } }) {
   const {category} = params
